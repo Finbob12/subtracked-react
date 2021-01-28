@@ -29,6 +29,7 @@ const NavbarPage = () => {
         </Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Link href="#log">Log In/Out</Nav.Link>
+          <Nav.Link href="#log">Sign Up</Nav.Link>
         </Nav>
       </Navbar>
     </div>

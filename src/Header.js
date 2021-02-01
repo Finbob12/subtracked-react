@@ -4,18 +4,6 @@ import Nav from 'react-bootstrap/Nav'
 import {LinkContainer} from 'react-router-bootstrap'
 
 
-// import Form from 'react-bootstrap/Form'
-// import FormControl from 'react-bootstrap/FormControl'
-// import Button from 'react-bootstrap/Button'
-
-// state = {
-//   isOpen: false
-// };
-
-// toggleCollapse = () => {
-//   this.setState({ isOpen: !this.state.isOpen });
-// }
-
 const Header = () => {
   return (
       <div>

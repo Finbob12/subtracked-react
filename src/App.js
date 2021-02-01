@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Account from './Account';
-import MySubs from './MySubs';
-import NewSub from './NewSub';
-import LogIn from './LogIn';
-import SignUp from './SignUp';
+import Header from './components/Header';
+import Account from './components/Account';
+import MySubs from './components/MySubs';
+import NewSub from './components/NewSub';
+import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from 'axios'

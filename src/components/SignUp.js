@@ -32,7 +32,7 @@ class SignUp extends Component {
         password_confirmation: password_confirmation
     }
 
-    axios.post('http://localhost:3000/users', {user}, {withCredentials: true})
+    axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
         .then(response => {
             if (response.data.status === 'created') {
                 this.props.handleLogin(response.data)

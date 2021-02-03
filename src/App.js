@@ -12,57 +12,62 @@ import axios from 'axios'
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      isLoggedIn: false,
-      user: {}
-     };
-  }
-componentDidMount() {
-  this.loginStatus()
-}
-
-loginStatus = () => {
-  axios.get('http://localhost:3001/logged_in', 
-  {withCredentials: true})    
-.then(response => {
-    if (response.data.logged_in) {
-      this.handleLogin(response)
-    } else {
-      this.handleLogout()
+    constructor(props) {
+        super(props);
+        this.state = { 
+            isLoggedIn: false,
+            user: {}
+        };
     }
-  })
-  .catch(error => console.log('api errors:', error))
-}
 
-handleLogin = (data) => {
-  this.setState({
-    isLoggedIn: true,
-    user: data.user
-  })
-}
-handleLogout = () => {
-  this.setState({
-  isLoggedIn: false,
-  user: {}
-  })
-}
+    componentDidMount() {
+        this.loginStatus()
+    }
+
+    loginStatus = () => {
+        axios.get('http://localhost:3001/logged_in', {withCredentials: true})    
+        .then(response => {
+            if (response.data.logged_in) {
+                return this.handleLogin(response)
+            } else {
+                return this.handleLogout()
+            }
+        })
+        .catch(error => console.log('api errors:', error))
+    } 
+
+    handleLogin = (data) => {
+        this.setState({
+        isLoggedIn: true,
+        user: data.user
+        })
+    }
+
+    handleLogout = () => {
+        this.setState({
+            isLoggedIn: false,
+            user: {}
+        })
+    }
 
 render() {
     return (
       <div>
-         <BrowserRouter>
-         <Header />
-          <Switch>
-          <Route exact path="/new-sub" component={NewSub} />
-          <Route exact path="/account" component={Account} />
-          <Route exact path="/my-subs" component={MySubs} />
-          <Route exact path="/log-in" component={LogIn} />
-          <Route exact path="/sign-up" component={SignUp} />
-          </Switch>
-        </BrowserRouter>
-      </div>
+            <BrowserRouter>
+                <Header
+                    handleLogout={this.handleLogout}
+                    state={this.state}
+                    
+                />
+                <Switch>
+                    <Route exact path="/new-sub" component={NewSub} />
+                    <Route exact path="/account" component={Account} />
+                    <Route exact path="/my-subs" component={MySubs} />
+                    <Route exact path="/log-in" component={LogIn} />
+                    <Route exact path="/sign-up" component={SignUp} />
+                </Switch>
+            </BrowserRouter>
+        </div>
     );
   }
 };

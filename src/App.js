@@ -54,7 +54,11 @@ render() {
     return (
       <div>
             <BrowserRouter>
-                <Header state={this.state}/>
+                <Header
+                    handleLogout={this.handleLogout}
+                    state={this.state}
+                    
+                />
                 <Switch>
                     <Route exact path="/new-sub" component={NewSub} />
                     <Route exact path="/account" component={Account} />

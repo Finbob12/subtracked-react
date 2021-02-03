@@ -35,6 +35,7 @@ loginStatus = () => {
   })
   .catch(error => console.log('api errors:', error))
 }
+
 handleLogin = (data) => {
   this.setState({
     isLoggedIn: true,

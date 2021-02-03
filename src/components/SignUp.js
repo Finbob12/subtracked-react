@@ -77,7 +77,7 @@ class SignUp extends Component {
                                 placeholder="email"
                                 type="email"
                                 name="email"
-                                value={email}
+                                value={email.toLowerCase()}
                                 onChange={this.handleChange}
                              />
                             <Form.Text className="text-muted">
@@ -90,7 +90,7 @@ class SignUp extends Component {
                                 placeholder="first name"
                                 type="text"
                                 name="first_name"
-                                value={first_name}
+                                value={first_name.toLowerCase()}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>
@@ -100,7 +100,7 @@ class SignUp extends Component {
                                 placeholder="password"
                                 type="password"
                                 name="password"
-                                value={password}
+                                value={password.toLowerCase()}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>
@@ -110,7 +110,7 @@ class SignUp extends Component {
                                 placeholder="confirm password"
                                 type="password"
                                 name="password_confirmation"
-                                value={password_confirmation}
+                                value={password_confirmation.toLowerCase()}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>

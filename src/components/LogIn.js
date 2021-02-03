@@ -30,7 +30,7 @@ class LogIn extends Component {
             password: password
         }
         
-    axios.post('http://localhost:3000/login', {user}, {withCredentials: true})
+    axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
         .then(response => {
             if (response.data.logged_in) {
                 this.props.handleLogin(response.data)
@@ -75,7 +75,7 @@ class LogIn extends Component {
                                 placeholder="email"
                                 type="email"
                                 name="email"
-                                value={email}
+                                value={email.toLowerCase()}
                                 onChange={this.handleChange}
                              />
                              <Form.Text className="text-muted">
@@ -88,7 +88,7 @@ class LogIn extends Component {
                                 placeholder="first name"
                                 type="text"
                                 name="first_name"
-                                value={first_name}
+                                value={first_name.toLowerCase()}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>
@@ -98,7 +98,7 @@ class LogIn extends Component {
                                 placeholder="password"
                                 type="password"
                                 name="password"
-                                value={password}
+                                value={password.toLowerCase()}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>

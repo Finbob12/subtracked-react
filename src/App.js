@@ -32,7 +32,7 @@ class App extends Component {
             } else {
                 return this.handleLogout()
             }
-            })
+        })
         .catch(error => console.log('api errors:', error))
     } 
 

@@ -19,7 +19,7 @@ class LogIn extends Component {
         this.setState({
           [name]: value
         })
-      };
+    };
 
     handleSubmit = (event) => {
         event.preventDefault()
@@ -29,8 +29,9 @@ class LogIn extends Component {
             email: email,
             password: password
         }
+    
         
-    axios.post('http://localhost:3000/login', {user}, {withCredentials: true})
+        axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
         .then(response => {
             if (response.data.logged_in) {
                 this.props.handleLogin(response.data)
@@ -45,7 +46,7 @@ class LogIn extends Component {
     };
 
     redirect = () => {
-        this.props.history.push('/')
+        this.props.history.push('/my-subs')
     }
 
     handleErrors = () => {

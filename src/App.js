@@ -50,21 +50,28 @@ class App extends Component {
         })
     }
 
+    redirect = () => {
+        this.props.history.push('/')
+    }
+
 render() {
     return (
       <div>
             <BrowserRouter>
                 <Header
                     handleLogout={this.handleLogout}
+                    redirect={this.redirect}
                     state={this.state}
-                    
                 />
                 <Switch>
                     <Route exact path="/new-sub" component={NewSub} />
                     <Route exact path="/account" component={Account} />
                     <Route exact path="/my-subs" component={MySubs} />
-                    <Route exact path="/log-in" component={LogIn} />
-                    <Route exact path="/sign-up" component={SignUp} />
+                    {/* <Route exact path="/log-in" component={LogIn} handleLogin={this.handleLogin} /> */}
+                    {/* <Route exact path="/sign-up" component={SignUp} /> */}
+
+                    <Route exact path="/log-in" render={(props) => <LogIn {...props} handleLogin={this.handleLogin} />} />
+                    <Route exact path="/sign-up" render={(props) => <SignUp {...props} handleLogin={this.handleLogin} />} />
                 </Switch>
             </BrowserRouter>
         </div>

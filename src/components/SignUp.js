@@ -47,7 +47,7 @@ class SignUp extends Component {
     };
 
     redirect = () => {
-        this.props.history.push('/')
+        this.props.history.push('/my-subs')
     }
 
     handleErrors = () => {
@@ -77,7 +77,7 @@ class SignUp extends Component {
                                 placeholder="email"
                                 type="email"
                                 name="email"
-                                value={email.toLowerCase()}
+                                value={email}
                                 onChange={this.handleChange}
                              />
                             <Form.Text className="text-muted">
@@ -90,7 +90,7 @@ class SignUp extends Component {
                                 placeholder="first name"
                                 type="text"
                                 name="first_name"
-                                value={first_name.toLowerCase()}
+                                value={first_name}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>
@@ -100,7 +100,7 @@ class SignUp extends Component {
                                 placeholder="password"
                                 type="password"
                                 name="password"
-                                value={password.toLowerCase()}
+                                value={password}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>
@@ -110,7 +110,7 @@ class SignUp extends Component {
                                 placeholder="confirm password"
                                 type="password"
                                 name="password_confirmation"
-                                value={password_confirmation.toLowerCase()}
+                                value={password_confirmation}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>

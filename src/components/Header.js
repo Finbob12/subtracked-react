@@ -5,14 +5,20 @@ import Nav from 'react-bootstrap/Nav'
 import {LinkContainer} from 'react-router-bootstrap'
 
 const Header = (props) => {
+    console.log(props)
     const handleClick = () => {
         axios.delete('http://localhost:3001/logout', {withCredentials: true})
         .then(response => {
+            console.log(props)
             props.handleLogout()
-            props.history.push('/')
+            // this.redirect()
         })
         .catch(error => console.log(error))
     }
+
+    // redirect = () => {
+    //     this.props.history.push('/')
+    // }
 
     return (
         <div>

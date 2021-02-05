@@ -13,7 +13,7 @@ class LogIn extends Component {
         errors: ''
        };
     }
-
+    
     handleChange = (event) => {
         const {name, value} = event.target
         this.setState({
@@ -35,7 +35,7 @@ class LogIn extends Component {
         .then(response => {
             if (response.data.logged_in) {
                 this.props.handleLogin(response.data)
-                this.redirect()
+                this.redirect()                
             } else {
                 this.setState({
                 errors: response.data.errors
@@ -76,7 +76,7 @@ class LogIn extends Component {
                                 placeholder="email"
                                 type="email"
                                 name="email"
-                                value={email.toLowerCase()}
+                                value={email}
                                 onChange={this.handleChange}
                              />
                              <Form.Text className="text-muted">
@@ -89,7 +89,7 @@ class LogIn extends Component {
                                 placeholder="first name"
                                 type="text"
                                 name="first_name"
-                                value={first_name.toLowerCase()}
+                                value={first_name}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>
@@ -99,7 +99,7 @@ class LogIn extends Component {
                                 placeholder="password"
                                 type="password"
                                 name="password"
-                                value={password.toLowerCase()}
+                                value={password}
                                 onChange={this.handleChange}
                              />
                         </Form.Group>

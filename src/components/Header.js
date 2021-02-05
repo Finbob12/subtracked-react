@@ -9,7 +9,6 @@ const Header = (props) => {
         axios.delete('http://localhost:3001/logout', {withCredentials: true})
         .then(response => {
             props.handleLogout()
-            props.history.push('/')
         })
         .catch(error => console.log(error))
     }
@@ -27,7 +26,7 @@ const Header = (props) => {
                     <Nav.Link>New Sub</Nav.Link>
                 </LinkContainer>
                 </Nav>
-                <LinkContainer to="/">
+                <LinkContainer to="/home">
                     <Navbar.Brand href="#home" className="navbar-brand mx-auto">
                         SubTracked
                     </Navbar.Brand>
@@ -36,7 +35,7 @@ const Header = (props) => {
                     <LinkContainer to="/account">
                         <Nav.Link>Account</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/log-out" onClick={handleClick}>
+                    <LinkContainer to="/home" onClick={handleClick}>
                         <Nav.Link>Log Out</Nav.Link>
                     </LinkContainer>
                 </Nav>

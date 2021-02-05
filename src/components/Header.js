@@ -5,20 +5,13 @@ import Nav from 'react-bootstrap/Nav'
 import {LinkContainer} from 'react-router-bootstrap'
 
 const Header = (props) => {
-    console.log(props)
     const handleClick = () => {
         axios.delete('http://localhost:3001/logout', {withCredentials: true})
         .then(response => {
-            console.log(props)
             props.handleLogout()
-            // this.redirect()
         })
         .catch(error => console.log(error))
     }
-
-    // redirect = () => {
-    //     this.props.history.push('/')
-    // }
 
     return (
         <div>
@@ -33,7 +26,7 @@ const Header = (props) => {
                     <Nav.Link>New Sub</Nav.Link>
                 </LinkContainer>
                 </Nav>
-                <LinkContainer to="/">
+                <LinkContainer to="/home">
                     <Navbar.Brand href="#home" className="navbar-brand mx-auto">
                         SubTracked
                     </Navbar.Brand>
@@ -42,7 +35,7 @@ const Header = (props) => {
                     <LinkContainer to="/account">
                         <Nav.Link>Account</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/log-out" onClick={handleClick}>
+                    <LinkContainer to="/home" onClick={handleClick}>
                         <Nav.Link>Log Out</Nav.Link>
                     </LinkContainer>
                 </Nav>

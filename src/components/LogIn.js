@@ -34,7 +34,6 @@ class LogIn extends Component {
 
         .then(response => {
             if (response.data.logged_in) {
-                console.log(this.props)
                 this.props.handleLogin(response.data)
                 this.redirect()                
             } else {

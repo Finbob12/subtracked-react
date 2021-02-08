@@ -7,9 +7,7 @@ import {LinkContainer} from 'react-router-bootstrap'
 const Header = (props) => {
     const handleClick = () => {
         axios.delete('http://localhost:3001/logout', {withCredentials: true})
-        .then(response => {
-            props.handleLogout()
-        })
+        .then(props.handleLogout())
         .catch(error => console.log(error))
     }
 

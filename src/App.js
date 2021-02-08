@@ -39,8 +39,8 @@ class App extends Component {
 
     handleLogin = (data) => {
         this.setState({
-        isLoggedIn: true,
-        user: data.user
+            isLoggedIn: true,
+            user: data.user
         })
     }
 
@@ -61,7 +61,7 @@ render() {
                 />
                 <Switch>
                     <Route exact path="/new-sub" component={NewSub} />
-                    <Route exact path="/account" component={Account} />
+                    <Route exact path="/account" render={(props) => <Account {...props} state={this.state} />} />
                     <Route exact path="/my-subs" component={MySubs} />
                     <Route exact path="/log-in" render={(props) => <LogIn {...props} handleLogin={this.handleLogin} />} />
                     <Route exact path="/sign-up" render={(props) => <SignUp {...props} handleLogin={this.handleLogin} />} />

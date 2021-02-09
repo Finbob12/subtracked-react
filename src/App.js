@@ -8,7 +8,6 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import axios from 'axios'
 
 import './App.css';
 
@@ -17,37 +16,43 @@ class App extends Component {
         super(props);
         this.state = { 
             isLoggedIn: false,
-            user: {}
+            email: '',
+            auth: {token: null}
         };
     }
 
-    componentDidMount() {
-        this.loginStatus()
-    }
+    // componentDidMount() {
+    //     this.loginStatus()
+    // }
 
-    loginStatus = () => {
-        axios.get('http://localhost:3001/logged_in', {withCredentials: true})    
-        .then(response => {
-            if (response.data.logged_in) {
-                return this.handleLogin(response)
-            } else {
-                return this.handleLogout()
-            }
-        })
-        .catch(error => console.log('api errors:', error))
-    } 
+    // loginStatus = () => {
+    //     axios.get('http://localhost:3001/logged_in', {withCredentials: true})    
+    //     .then(response => {
+    //         if (response.data.logged_in) {
+    //             return this.handleLogin(response)
+    //         } else {
+    //             return this.handleLogout()
+    //         }
+    //     })
+    //     .catch(error => console.log('api errors:', error))
+    // } 
 
     handleLogin = (data) => {
         this.setState({
-        isLoggedIn: true,
-        user: data.user
+            isLoggedIn: true,
+            email: data.email,
+            // Set authentication token to generated JWT
+            auth: {token: data.jwt}
         })
+        console.log(this.state)
     }
 
     handleLogout = () => {
         this.setState({
             isLoggedIn: false,
-            user: {}
+            email: '', 
+            // Remove generated authentication token on logout
+            auth: {token: ''}
         })
     }
 

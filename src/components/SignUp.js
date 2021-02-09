@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import {signUp} from '../services/authServices'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -32,18 +32,26 @@ class SignUp extends Component {
         password_confirmation: password_confirmation
     }
 
-    axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
-        .then(response => {
-            if (response.data.status === 'created') {
-                this.props.handleLogin(response.data)
-                this.redirect()
-            } else {
-                this.setState({
-                errors: response.data.errors
-                })
-            }
-        })
-        .catch(error => console.log('api errors:', error))
+    signUp(this.state)
+    .then(response => {
+        this.props.handleLogin(response)
+        // After successful login, redirect to 'My Subs' page (see below)
+        this.redirect()                
+    })
+    .catch(error => console.log('api errors:', error)) 
+
+    // axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
+    //     .then(response => {
+    //         if (response.data.status === 'created') {
+    //             this.props.handleLogin(response.data)
+    //             this.redirect()
+    //         } else {
+    //             this.setState({
+    //             errors: response.data.errors
+    //             })
+    //         }
+    //     })
+    //     .catch(error => console.log('api errors:', error))
     };
 
     redirect = () => {

@@ -1,16 +1,12 @@
 import React from "react"
-import axios from "axios"
+// import {handleLogout} from "../App"
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import {LinkContainer} from 'react-router-bootstrap'
 
 const Header = (props) => {
     const handleClick = () => {
-        axios.delete('http://localhost:3001/logout', {withCredentials: true})
-        .then(response => {
-            props.handleLogout()
-        })
-        .catch(error => console.log(error))
+        this.handleLogout()
     }
 
     return (
@@ -43,11 +39,11 @@ const Header = (props) => {
             ) : (
                 <>
                     <Nav className="mr-auto">
-                        <LinkContainer to="/">
+                        <LinkContainer to="/home">
                             <Nav.Link>Home</Nav.Link>
                         </LinkContainer>
                     </Nav>
-                    <LinkContainer to="/">
+                    <LinkContainer to="/home">
                         <Navbar.Brand href="#home" className="navbar-brand mx-auto">
                             SubTracked
                         </Navbar.Brand>

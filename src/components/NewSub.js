@@ -23,7 +23,7 @@ const NewSub = () => {
                     <Form.Control as="select">
                         <option>Weekly</option>
                         <option>Fortnightly</option>
-                        <option>Month</option>
+                        <option>Monthly</option>
                         <option>Quarterly</option>
                         <option>Yearly</option>
                     </Form.Control>

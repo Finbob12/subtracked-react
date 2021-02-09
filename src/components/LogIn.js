@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import {signIn} from '../services/authServices'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -10,10 +10,12 @@ class LogIn extends Component {
         first_name: '',
         email: '',
         password: '',
+        password_confirmation: '',
         errors: ''
        };
     }
     
+    // Keep track of changes to form fields
     handleChange = (event) => {
         const {name, value} = event.target
         this.setState({
@@ -23,27 +25,47 @@ class LogIn extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const {first_name, email, password} = this.state
-        let user = {
-            first_name: first_name,
-            email: email,
-            password: password
-        }
-    
-    axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+        // const {first_name, email, password} = this.state
+        // let user = {
+        //     first_name: first_name,
+        //     email: email,
+        //     password: password
+        // }
 
+        // Call signIn method from authServices in ../services
+        signIn(this.state)
         .then(response => {
-            if (response.data.logged_in) {
-                this.props.handleLogin(response.data)
-                this.redirect()                
-            } else {
-                this.setState({
-                errors: response.data.errors
-                })
-            }
+            // console.log(response)
+            // if (response.data) {
+            // console.log(this.props)
+            this.props.handleLogin(response)
+            // After successful login, redirect to 'My Subs' page (see below)
+            this.redirect()                
+
+            // } else {
+            //     this.setState({
+            //     errors: response.data.errors
+            //     })
+            // }
+            // dispatch({type: 'setLoggedInUser', data: username})
+			// dispatch({type: 'setToken', data: jwt})
         })
-        .catch(error => console.log('api errors:', error))
-    };
+        .catch(error => console.log('api errors:', error)) 
+    }
+    
+    // axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+
+    //     .then(response => {
+    //         if (response.data.logged_in) {
+    //             this.props.handleLogin(response.data)
+    //             this.redirect()                
+    //         } else {
+    //             this.setState({
+    //             errors: response.data.errors
+    //             })
+    //         }
+    //     })
+    //     .catch(error => console.log('api errors:', error))    
 
     redirect = () => {
         this.props.history.push('/my-subs')

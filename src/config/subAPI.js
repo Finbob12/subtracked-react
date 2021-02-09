@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // Provide deployed site base url for all requests
 const subAPI = axios.create({
-    baseURL: 'http://localhost:3001'
+    // baseURL: 'http://localhost:3001'
+    baseURL: 'https://eloquent-shirley-58d253.netlify.app/'
 });
 
 // Pass JWT in headers for every request

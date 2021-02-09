@@ -40,6 +40,7 @@ class SignUp extends Component {
     })
     .catch(error => console.log('api errors:', error)) 
 
+    // AXIOS REQUEST CODE FOR SESSIONS-BASED AUTH
     // axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
     //     .then(response => {
     //         if (response.data.status === 'created') {

@@ -41,20 +41,12 @@ class LogIn extends Component {
             this.props.handleLogin(response)
             // After successful login, redirect to 'My Subs' page (see below)
             this.redirect()                
-
-            // } else {
-            //     this.setState({
-            //     errors: response.data.errors
-            //     })
-            // }
-            // dispatch({type: 'setLoggedInUser', data: username})
-			// dispatch({type: 'setToken', data: jwt})
         })
         .catch(error => console.log('api errors:', error)) 
     }
     
+    // AXIOS REQUEST CODE FOR SESSIONS-BASED AUTH
     // axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
-
     //     .then(response => {
     //         if (response.data.logged_in) {
     //             this.props.handleLogin(response.data)

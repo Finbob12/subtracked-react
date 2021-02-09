@@ -21,6 +21,7 @@ class App extends Component {
         };
     }
 
+    // AXIOS REQUEST CODE FOR SESSIONS-BASED AUTH
     // componentDidMount() {
     //     this.loginStatus()
     // }

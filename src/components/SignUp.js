@@ -24,13 +24,13 @@ class SignUp extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const {first_name, email, password, password_confirmation} = this.state
-    let user = {
-        first_name: first_name,
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation
-    }
+    // const {first_name, email, password, password_confirmation} = this.state
+    // let user = {
+    //     first_name: first_name,
+    //     email: email,
+    //     password: password,
+    //     password_confirmation: password_confirmation
+    // }
 
     signUp(this.state)
     .then(response => {

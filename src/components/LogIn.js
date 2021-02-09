@@ -35,9 +35,9 @@ class LogIn extends Component {
         // Call signIn method from authServices in ../services
         signIn(this.state)
         .then(response => {
-            console.log(response)
+            // console.log(response)
             // if (response.data) {
-            console.log(this.props)
+            // console.log(this.props)
             this.props.handleLogin(response)
             // After successful login, redirect to 'My Subs' page (see below)
             this.redirect()                
